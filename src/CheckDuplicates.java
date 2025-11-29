@@ -55,6 +55,17 @@ public  class CheckDuplicates {
          return true;
         }
 
+    public int getDuplicatedNumber(ArrayList<Integer> values) {
+        int[] count = new int[10];
+        for (int value : values) {
+            if (value < 1 || value > 9)
+                return 0;
+            count[value]++;
+            if (count[value] == 2)
+                return value;
+        }
+        return -1;
+    }
 
      public List<Pair<String,Integer>> checkRows(){
          List<Pair<String,Integer>> rowDuplicates = new ArrayList<>();
