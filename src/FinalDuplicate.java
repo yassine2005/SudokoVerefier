@@ -1,17 +1,17 @@
-import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class FinalDuplicate {
+
     private String type;
     private int index;
-    private HashMap<Integer, List<Integer>> duplicates;
+    private Map<Integer, List<Integer>> duplicates;
 
-    public FinalDuplicate(String type, int index, HashMap<Integer, List<Integer>> duplicates) {
+    public FinalDuplicate(String type, int index, Map<Integer, List<Integer>> duplicates) {
         this.type = type;
         this.index = index;
         this.duplicates = duplicates;
     }
-
 
     public String getType() {
         return type;
@@ -21,7 +21,7 @@ public class FinalDuplicate {
         return index;
     }
 
-    public HashMap<Integer, List<Integer>> getDuplicates() {
+    public Map<Integer, List<Integer>> getDuplicates() {
         return duplicates;
     }
 }
