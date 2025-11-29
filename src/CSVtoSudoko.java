@@ -24,9 +24,9 @@ public class CSVtoSudoko {
 
                 if (line.trim().isEmpty()) continue;
 
-                String[] parts = line.trim().split("[,\\s]+");
+                String[] numbers = line.trim().split("[,\\s]+");
 
-                if (parts.length != 9) {
+                if (numbers.length != 9) {
                     System.out.println("ERROR: Line does not contain 9 numbers → " + line);
                     return null;
                 }
@@ -35,9 +35,9 @@ public class CSVtoSudoko {
 
                 for (int i = 0; i < 9; i++) {
                     try {
-                        row[i] = Integer.parseInt(parts[i]);
+                        row[i] = Integer.parseInt(numbers[i]);
                     } catch (NumberFormatException e) {
-                        System.out.println("ERROR: Invalid number → " + parts[i]);
+                        System.out.println("ERROR: Invalid number → " + numbers[i]);
                         return null;
                     }
                 }
