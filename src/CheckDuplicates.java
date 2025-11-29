@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public  class CheckDuplicates {
 
@@ -55,33 +56,33 @@ public  class CheckDuplicates {
         }
 
 
-     public ArrayList<Integer> checkRows(){
-        ArrayList<Integer> rowDuplicates = new ArrayList<>();
+     public List<Pair<String,Integer>> checkRows(){
+         List<Pair<String,Integer>> rowDuplicates = new ArrayList<>();
        for(int i = 0; i < 9; i++){
            ArrayList<Integer> row = getRow(i);
            if (!isValid(row)){
-               rowDuplicates.add(i);
+               rowDuplicates.add(new Pair<>("row",i+1));
            }
        }
       return rowDuplicates;
 
      }
-     public ArrayList<Integer> checkColumns(){
-        ArrayList<Integer> columnDuplicates = new ArrayList<>();
+     public List<Pair<String,Integer>> checkColumns(){
+         List<Pair<String,Integer>> columnDuplicates = new ArrayList<>();
         for(int i = 0; i < 9; i++){
             ArrayList<Integer> column = getColumn(i);
             if (!isValid(column)){
-                columnDuplicates.add(i);
+                columnDuplicates.add(new Pair<>("COLUMN",i+1));
             }
         }
         return columnDuplicates;
      }
-     public ArrayList<Integer> checkBoxes(){
-        ArrayList<Integer> boxDuplicates = new ArrayList<>();
+     public List<Pair<String,Integer>> checkBoxes(){
+         List<Pair<String,Integer>> boxDuplicates = new ArrayList<>();
         for(int i = 0; i < 9; i++){
             ArrayList<Integer> box = getBox(i);
             if (!isValid(box)){
-                boxDuplicates.add(i);
+                boxDuplicates.add(new Pair<>("BOX",i+1));
             }
         }
         return boxDuplicates;
