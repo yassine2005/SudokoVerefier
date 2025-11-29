@@ -12,6 +12,7 @@ public class FinalDuplicate {
         this.duplicates = duplicates;
     }
 
+
     public String getType() {
         return type;
     }

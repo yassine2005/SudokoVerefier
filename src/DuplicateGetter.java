@@ -16,6 +16,7 @@ public class DuplicateGetter {
         HashMap<Integer, List<Integer>> map = new HashMap<>();
         int[] count = new int[10];
 
+
         for (int i = 0; i < values.size(); i++) {
             int num = values.get(i);
             count[num]++;
