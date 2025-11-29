@@ -1,7 +1,7 @@
 import java.util.List;
 
 public class PrintResult {
-    public PrintResult(List<Pair<String,Integer>> locations, int numberDuplicated, List<List<Integer>> results) {
+    public PrintResult(List<Pair<String,Integer>> locations, List<Integer> numberDuplicated, List<List<Integer>> results) {
         //locations(type, location example row 1)
         //result(number duplicated , its locations example #1 [1,2,3])
         //the size of locations and result equal
@@ -9,7 +9,7 @@ public class PrintResult {
 
         //check the size if empty -> valid
         if(locations.isEmpty()){
-            System.out.printf("VALID");
+            System.out.println("VALID");
             return;
         }
         System.out.println("INVALID");
@@ -17,7 +17,7 @@ public class PrintResult {
         int index = 0;
         for (Pair<String,Integer> pair : locations) {
             System.out.print(pair.getKey() + pair.getValue() + ", "
-            + "#" + numberDuplicated + ", "+ "[");
+            + "#" + numberDuplicated.get(index) + ", "+ "[");
             List<Integer> locationsOfDuplicatedNumber = results.get(index++);
             for (int j = 0; j < locationsOfDuplicatedNumber.size(); j++){
                 if(j == locationsOfDuplicatedNumber.size() - 1)
