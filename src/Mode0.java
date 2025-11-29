@@ -1,0 +1,2 @@
+public class Mode0 {
+}
