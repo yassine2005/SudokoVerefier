@@ -16,27 +16,22 @@ public class DuplicateGetter {
         HashMap<Integer, List<Integer>> map = new HashMap<>();
         int[] count = new int[10];
 
-
         for (int i = 0; i < values.size(); i++) {
             int num = values.get(i);
             count[num]++;
-
             map.putIfAbsent(num, new ArrayList<>());
             map.get(num).add(i);
         }
 
         map.entrySet().removeIf(e -> e.getValue().size() < 2);
-
         return map;
     }
 
     public List<FinalDuplicate> getRowDuplicates() {
         List<FinalDuplicate> results = new ArrayList<>();
-
         for (int row = 0; row < 9; row++) {
             ArrayList<Integer> list = check.getRow(row);
             var duplicates = findDuplicatesInUnit(list);
-
             if (!duplicates.isEmpty()) {
                 results.add(new FinalDuplicate("ROW", row, duplicates));
             }
@@ -46,11 +41,9 @@ public class DuplicateGetter {
 
     public List<FinalDuplicate> getColumnDuplicates() {
         List<FinalDuplicate> results = new ArrayList<>();
-
         for (int col = 0; col < 9; col++) {
             ArrayList<Integer> list = check.getColumn(col);
             var duplicates = findDuplicatesInUnit(list);
-
             if (!duplicates.isEmpty()) {
                 results.add(new FinalDuplicate("COLUMN", col, duplicates));
             }
@@ -60,15 +53,34 @@ public class DuplicateGetter {
 
     public List<FinalDuplicate> getBoxDuplicates() {
         List<FinalDuplicate> results = new ArrayList<>();
-
         for (int box = 0; box < 9; box++) {
             ArrayList<Integer> list = check.getBox(box);
             var duplicates = findDuplicatesInUnit(list);
-
             if (!duplicates.isEmpty()) {
                 results.add(new FinalDuplicate("BOX", box, duplicates));
             }
         }
         return results;
+    }
+
+    public FinalDuplicate getRowDuplicate(int row) {
+        ArrayList<Integer> list = check.getRow(row);
+        var duplicates = findDuplicatesInUnit(list);
+        if (duplicates.isEmpty()) return null;
+        return new FinalDuplicate("ROW", row, duplicates);
+    }
+
+    public FinalDuplicate getColumnDuplicate(int col) {
+        ArrayList<Integer> list = check.getColumn(col);
+        var duplicates = findDuplicatesInUnit(list);
+        if (duplicates.isEmpty()) return null;
+        return new FinalDuplicate("COLUMN", col, duplicates);
+    }
+
+    public FinalDuplicate getBoxDuplicate(int box) {
+        ArrayList<Integer> list = check.getBox(box);
+        var duplicates = findDuplicatesInUnit(list);
+        if (duplicates.isEmpty()) return null;
+        return new FinalDuplicate("BOX", box, duplicates);
     }
 }
