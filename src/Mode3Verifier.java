@@ -21,6 +21,7 @@ public class Mode3Verifier {
         colThread.start();
         boxThread.start();
 
+        //this to make the main thread stop and call print class after excution of threds
         try {
             rowThread.join();
             colThread.join();
@@ -42,7 +43,7 @@ public class Mode3Verifier {
         private List<FinalDuplicate> colDuplicates = new ArrayList<>();
         private List<FinalDuplicate> boxDuplicates = new ArrayList<>();
 
-        private WorkerThread(String type) {
+        private WorkerThread(String type){
             this.type = type;
             //duplicates = new ArrayList<>();
         }
@@ -94,7 +95,6 @@ public class Mode3Verifier {
 //                        FinalDuplicate fd = new FinalDuplicate("BOX", i, map);
 //                        boxDuplicates.add(fd);
 //                    }
-//
                 unitWork("BOX");
             }
             //result.addAll(duplicates);
