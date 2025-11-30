@@ -3,7 +3,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Mode3Verifier {
+public class Mode3Verifier implements Checker {
     private int[][] data;
     private CheckDuplicates checker;
     private List<FinalDuplicate> result = new ArrayList<>();
@@ -12,7 +12,13 @@ public class Mode3Verifier {
     public Mode3Verifier(int[][] board) {
         this.data = board;
         checker = new CheckDuplicates(board);
+    run();
+    }
 
+
+
+    @Override
+    public void run() {
         WorkerThread rowThread = new WorkerThread("ROW");
         WorkerThread colThread = new WorkerThread("COLUMN");
         WorkerThread boxThread = new WorkerThread("BOX");
@@ -35,6 +41,8 @@ public class Mode3Verifier {
         PrintResult printResult = new PrintResult(result);
 
     }
+
+
 
     private class WorkerThread extends Thread {
         private String type;

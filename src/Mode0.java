@@ -4,14 +4,14 @@ import java.util.List;
 import java.util.*;
 
 
-public class Mode0 implements Runnable {
+public class Mode0 implements Checker {
     private int[][] data;
     private List<FinalDuplicate> duplicates = new ArrayList<>();
-    private UnitDuplicate uD;
     private CheckDuplicates check;
 
     public Mode0(int[][] board) {
         this.data = board;
+        run();
     }
 
     @Override
@@ -76,7 +76,6 @@ public class Mode0 implements Runnable {
         new PrintResult(duplicates);
 
 
-
 }
     private void unitWork(String type){
         check = new CheckDuplicates(data);
@@ -120,4 +119,6 @@ public class Mode0 implements Runnable {
         }
 
     }
+
+
 }

@@ -4,13 +4,14 @@ import java.util.List;
 import java.util.Map;
 
 
-public class Mode27Verifier implements Runnable {
+public class Mode27Verifier implements Checker {
 
     private int[][] sudoko;
     private ArrayList<FinalDuplicate> duplicates = new ArrayList<>();
 
     public Mode27Verifier(int[][] sudoko) {
         this.sudoko = sudoko;
+        run();
     }
 
     @Override
