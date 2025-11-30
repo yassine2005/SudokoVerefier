@@ -7,9 +7,12 @@ import java.util.*;
 public class Mode0 implements Runnable {
     private int[][] data;
     private List<FinalDuplicate> duplicates = new ArrayList<>();
-
+    private Thread thread0;
     public Mode0(int[][] board) {
         this.data = board;
+        thread0=new Thread(this);
+        thread0.start();
+
     }
 
     @Override
@@ -45,7 +48,7 @@ public class Mode0 implements Runnable {
 //                    results.add(check.getIndex(col,dup));
 //                    duplicatedNumber.add(num.get(j));
                     map.put(dup,check.getIndex(col,dup));
-                    FinalDuplicate duplicate = new FinalDuplicate("ROW", i, map);
+                    FinalDuplicate duplicate = new FinalDuplicate("Column", i, map);
                     duplicates.add(duplicate);
                 }
             }
@@ -62,13 +65,13 @@ public class Mode0 implements Runnable {
 //                    results.add(check.getIndex(box,dup));
 //                    duplicatedNumber.add(num.get(j));
                     map.put(dup,check.getIndex(box,dup));
-                    FinalDuplicate duplicate = new FinalDuplicate("ROW", i, map);
+                    FinalDuplicate duplicate = new FinalDuplicate("Box", i, map);
                     duplicates.add(duplicate);
                 }
             }
         }
+
         new PrintResult(duplicates);
 
-
-
-}}
+    }
+}
