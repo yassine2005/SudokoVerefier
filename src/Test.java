@@ -17,11 +17,11 @@ public class Test {
 //        int mode = Integer.parseInt(args[1]);
 //        int [][] board = CSVtoSudoko.readSudoko(fileName);
         //new CreateThreads(27, board);
-       // Mode3Verifier mode3 = new Mode3Verifier(board);
-        //Mode27Verifier mode27 = new Mode27Verifier(board);
+        Mode3Verifier mode3 = new Mode3Verifier(board);
+       //Mode27Verifier mode27 = new Mode27Verifier(board);
         //Thread thread27 = new Thread(mode27);
         //thread27.start();
-        Mode0 mode0 = new Mode0(board);
+      // Mode0 mode0 = new Mode0(board);
 
     }
 
