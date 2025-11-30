@@ -11,11 +11,11 @@ public class Mode27Verifier implements Checker {
 
     public Mode27Verifier(int[][] sudoko) {
         this.sudoko = sudoko;
-        run();
+        check();
     }
 
     @Override
-    public void run() {
+    public void check() {
 
         CheckDuplicates check = new CheckDuplicates(sudoko);
 

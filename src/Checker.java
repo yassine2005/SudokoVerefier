@@ -1,4 +1,4 @@
-public interface Checker extends  Runnable {
-    public void run();
+public interface Checker  {
+    public void check();
 }
 

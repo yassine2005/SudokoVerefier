@@ -11,11 +11,11 @@ public class Mode0 implements Checker {
 
     public Mode0(int[][] board) {
         this.data = board;
-        run();
+        check();
     }
 
     @Override
-    public void run() {
+    public void check() {
         unitWork("ROW");
         unitWork("COLUMN");
         unitWork("BOX");

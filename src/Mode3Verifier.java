@@ -12,13 +12,13 @@ public class Mode3Verifier implements Checker {
     public Mode3Verifier(int[][] board) {
         this.data = board;
         checker = new CheckDuplicates(board);
-    run();
+    check();
     }
 
 
 
     @Override
-    public void run() {
+    public void check() {
         WorkerThread rowThread = new WorkerThread("ROW");
         WorkerThread colThread = new WorkerThread("COLUMN");
         WorkerThread boxThread = new WorkerThread("BOX");
